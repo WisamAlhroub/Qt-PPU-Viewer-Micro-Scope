@@ -22,7 +22,11 @@ class RenderWidget : public QWidget
     QSize minimumSizeHint() const override;
     QSize sizeHint() const override;
 
-	  void myDrawLine(float x1, float y1, float x2, float y2);
+    void drawLine(QPair<int, int> p1, QPair<int, int> p2);
+
+    void drawCircle(QPair<int, int> c, int r);
+
+    void drawArc(QPair<int, int> c, double t1, double t2, int r);
 
   protected:
     void paintEvent(QPaintEvent *event) override;
