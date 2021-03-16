@@ -86,24 +86,23 @@ void RenderWidget::drawLine(QPair<int, int> p1, QPair<int, int> p2)
 	int dx = abs(p2.first - p1.first);
 	int dy = abs(p2.second - p1.second) * -1;
 
-	int p = dx + dy;
+	int p = 2 * dx + 2 * dy;
 
 	while (p1.first != p2.first || p1.second != p2.second)
 	{
 		painter.drawPoint(p1.first, p1.second);
 
-		if (p * 2 >= dy)
+		if (p >= dy)
 		{
-			p += dy;
+			p += 2 * dy;
 			p1.first += sx;
 		}
 		else
 		{
-			p += dx;
+			p += 2 * dx;
 			p1.second += sy;
 		}
 	}
-	
 }
 
 void drawCirclePoints(QPair<int, int> c, int x, int y, QPainter& painter)
